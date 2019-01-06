@@ -1,0 +1,3 @@
+c:\temp\asdasd\epa.txt
+c:\temp\asdasd\test2\asdasdasdasd.txt modify
+c:\temp\asdasd\test2\hi.txt delete
