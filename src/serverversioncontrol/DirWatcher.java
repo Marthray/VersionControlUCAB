@@ -30,15 +30,17 @@ public class DirWatcher extends TimerTask {
     File ref = new File("ref.txt");
     
     try{
-        FileOutputStream fos = new FileOutputStream(ref);
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+        if(ref.length()==0){
+            FileOutputStream fos = new FileOutputStream(ref);
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
 
-        for (File f : filesArray){
-            bw.write(f.getAbsolutePath());
-            bw.newLine();
+            for (File f : filesArray){
+                bw.write(f.getAbsolutePath());
+                bw.newLine();
+            }
+
+            bw.close();
         }
-        
-        bw.close();
     }catch (FileNotFoundException e){
         System.out.println("No se encontró el archivo");
     }
@@ -110,16 +112,14 @@ public class DirWatcher extends TimerTask {
     String line;
     ArrayList<String> temp = new ArrayList<String>();
     try{
+        
+        if(action=="add"){ 
+            temp.add(filepath+" "+action);
+        }
         BufferedReader br = new BufferedReader(new FileReader("ref.txt"));
         while((line = br.readLine()) != null) {
             //cualquier accion menos agregar
             if (line.contains(filepath)){
-                if((line.split(" ").length<2))
-                    temp.add(line+" "+action);
-                else if(!action.equals(line.split(" ")[1]))
-                    temp.add(line.split(" ")[0]+" "+action);
-            //solo la acction de agregar    
-            } else if(action=="add"){ 
                 if((line.split(" ").length<2))
                     temp.add(line+" "+action);
                 else if(!action.equals(line.split(" ")[1]))

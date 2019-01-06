@@ -1,3 +1,4 @@
+c:\temp\asdasd\test2\1111.txt delete
 c:\temp\asdasd\epa.txt
-c:\temp\asdasd\test2\asdasdasdasd.txt modify
-c:\temp\asdasd\test2\hi.txt delete
+c:\temp\asdasd\test2\brian.txt
+c:\temp\asdasd\test2\hoa.txt
